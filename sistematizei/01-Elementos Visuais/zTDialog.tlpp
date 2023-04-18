@@ -1,0 +1,28 @@
+#INCLUDE 'TOTVS.ch'
+#INCLUDE 'Protheus.ch'
+
+/*/{Protheus.doc} User Function zTDialog
+description)
+    @type     @author user
+    @since 21/11/2022
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function zTDialog()
+
+Local oDgl1 // variavel que receberá a chamada da classe TDialog
+
+//TDialog():New( [ nTop ], [ nLeft ], [ nBottom ], [ nRight ], [ cCaption ], [ uParam6 ], [ uParam7 ], [ uParam8 ], [ uParam9 ], [ nClrText ], [ nClrBack ], [ uParam12 ], [ oWnd ], [ lPixel ], [ uParam15 ], [ uParam16 ], [ uParam17 ], [ nWidth ], [ nHeight ], [ lTransparent ] )
+oDgl1 := TDialog():New(180,180,550,700, 'Cadastro de Protheus',,,,, CLR_BLACK, CLR_WHITE,,,.T.)
+// ativa diálogo centralizado
+
+
+oDgl1:ACTIVATE(,,,)
+//Activate( [ uParam1 ], [ uParam2 ], [ uParam3 ], [ lCentered ], [ bValid ], [ uParam6 ], [ bInit ], [ uParam8 ], [ uParam9 ] )
+//lCentered lógico Indica se a janela será (.T.) ou não (.F.) centralizada. O padrão é falso (.F.).
+    
+Return 
