@@ -1,0 +1,15 @@
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\bin\Debug\net6.0\HelloWorld.exe
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\bin\Debug\net6.0\HelloWorld.deps.json
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\bin\Debug\net6.0\HelloWorld.runtimeconfig.json
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\bin\Debug\net6.0\HelloWorld.dll
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\bin\Debug\net6.0\HelloWorld.pdb
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\obj\Debug\net6.0\HelloWorld.csproj.AssemblyReference.cache
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\obj\Debug\net6.0\HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\obj\Debug\net6.0\HelloWorld.AssemblyInfoInputs.cache
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\obj\Debug\net6.0\HelloWorld.AssemblyInfo.cs
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\obj\Debug\net6.0\HelloWorld.csproj.CoreCompileInputs.cache
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\obj\Debug\net6.0\HelloWorld.dll
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\obj\Debug\net6.0\refint\HelloWorld.dll
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\obj\Debug\net6.0\HelloWorld.pdb
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\obj\Debug\net6.0\HelloWorld.genruntimeconfig.cache
+D:\GIT_PESSOAL\C#\Casa_do_Trabalhador\HelloWorld\HelloWorld\obj\Debug\net6.0\ref\HelloWorld.dll
