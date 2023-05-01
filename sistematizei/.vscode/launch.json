@@ -7,22 +7,9 @@
 			"name": "Depuração do idioma TOTVS",
 			"program": "${command:AskForProgramName}",
 			"cwb": "${workspaceFolder}",
-			"smartclientBin": "C:\\totvs\\V33_SMARTCLIENT_WINDOWS_X64\\smartclient.exe",
-			"enableMultiThread": true,
+			"smartclientBin": "../totvs/bin/smartclient/smartclient.exe",
 			"isMultiSession": true,
 			"enableTableSync": true
 		}
-	],
-	"lastPrograms": [
-		{
-			"label": "sigamdi"
-		},
-		{
-			"label": "sigaadv"
-		},
-		{
-			"label": "0000000000000000000000000"
-		}
-	],
-	"lastProgramExecuted": "0000000000000000000000000"
+	]
 }

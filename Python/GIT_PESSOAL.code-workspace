@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "APIsREST",
+			"path": "../APIsREST"
+		}
+	],
+	"settings": {}
+}

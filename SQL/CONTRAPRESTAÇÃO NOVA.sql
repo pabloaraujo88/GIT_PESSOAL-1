@@ -1,0 +1,60 @@
+ SELECT     convert(char(10),convert(datetime, E1_EMISSAO,103),103)  dEmissao,                                                       
+										SUM(E1_VALOR) as TOTAL, 'EMITIDO'  AS TIPO    
+FROM  SE1020 SE1 
+left join BA3020 on (BA3_CODEMP = E1_CODEMP and BA3_MATRIC = E1_MATRIC and BA3_CODINT = E1_CODINT )
+left join BDC020 BDC on (E1_PLNUCOB = BDC_CODOPE+BDC_NUMERO AND BDC.D_E_L_E_T_ <> '*' )
+WHERE E1_FILIAL = '01'
+   AND E1_PREFIXO IN ('11','UNI') 
+   AND E1_EMISSAO >= '20220901' AND E1_EMISSAO <= '20220931' 
+   AND E1_CODEMP = '0002' 
+   AND SUBSTRING(E1_ORIGEM,1,3) = 'PLS' AND E1_TIPO NOT IN ('IS-','NCC') 
+   AND SE1.D_E_L_E_T_ = ' ' AND (BA3020.D_E_L_E_T_ <> '*' or BA3020.D_E_L_E_T_ is null) 
+AND BDC_GRPCOB BETWEEN '0001 ' AND '9999  ' 
+GROUP BY E1_EMISSAO
+
+ SELECT     convert(char(10),convert(datetime, E1_EMISSAO,103),103)  dEmissao,                                                       
+										SUM(E1_VALOR) as TOTAL, 'RECEBIDO'  AS TIPO    
+FROM  SE1020 SE1 
+left join BA3020 on (BA3_CODEMP = E1_CODEMP and BA3_MATRIC = E1_MATRIC and BA3_CODINT = E1_CODINT )
+left join BDC020 BDC on (E1_PLNUCOB = BDC_CODOPE+BDC_NUMERO AND BDC.D_E_L_E_T_ <> '*' )
+WHERE E1_FILIAL = '01'
+   AND E1_PREFIXO IN ('11','UNI') 
+   AND E1_EMISSAO >= '20220901' AND E1_EMISSAO <= '20220931' 
+   AND E1_BAIXA BETWEEN  '20220901' AND '20220931'
+   AND E1_SALDO = '0'  
+   AND E1_CODEMP = '0002' 
+   AND SUBSTRING(E1_ORIGEM,1,3) = 'PLS' AND E1_TIPO NOT IN ('IS-','NCC') 
+   AND SE1.D_E_L_E_T_ = ' ' AND (BA3020.D_E_L_E_T_ <> '*' or BA3020.D_E_L_E_T_ is null) 
+AND BDC_GRPCOB BETWEEN '0001  ' AND '9999  ' 
+GROUP BY E1_EMISSAO
+
+ SELECT     convert(char(10),convert(datetime, E1_EMISSAO,103),103)  dEmissao,                                                       
+										SUM(E1_VALOR) as TOTAL, 'VENCIDO'  AS TIPO    
+FROM  SE1020 SE1 
+left join BA3020 on (BA3_CODEMP = E1_CODEMP and BA3_MATRIC = E1_MATRIC and BA3_CODINT = E1_CODINT )
+left join BDC020 BDC on (E1_PLNUCOB = BDC_CODOPE+BDC_NUMERO AND BDC.D_E_L_E_T_ <> '*' )
+WHERE E1_FILIAL = '01'
+   AND E1_PREFIXO IN ('11','UNI') 
+   AND E1_EMISSAO >= '20220901' AND E1_EMISSAO <= '20220931' 
+   AND E1_SALDO > '0'  
+   AND E1_CODEMP = '0002' 
+   AND SUBSTRING(E1_ORIGEM,1,3) = 'PLS' AND E1_TIPO NOT IN ('IS-','NCC') 
+   AND SE1.D_E_L_E_T_ = ' ' AND (BA3020.D_E_L_E_T_ <> '*' or BA3020.D_E_L_E_T_ is null) 
+AND BDC_GRPCOB BETWEEN '0001  ' AND '9999  ' 
+GROUP BY E1_EMISSAO
+
+
+ SELECT     convert(char(10),convert(datetime, E1_EMISSAO,103),103)  dEmissao,                                                       
+										SUM(E1_VALLIQ) as TOTAL, 'VENCIDO'  AS TIPO    
+FROM  SE1020 SE1 
+left join BA3020 on (BA3_CODEMP = E1_CODEMP and BA3_MATRIC = E1_MATRIC and BA3_CODINT = E1_CODINT )
+left join BDC020 BDC on (E1_PLNUCOB = BDC_CODOPE+BDC_NUMERO AND BDC.D_E_L_E_T_ <> '*' )
+WHERE E1_FILIAL = '01'
+   AND E1_PREFIXO IN ('11','UNI') 
+   AND E1_EMISSAO >= '20220901' AND E1_EMISSAO <= '20220931' 
+   AND E1_BAIXA > '20220931'  
+   AND E1_CODEMP = '0002' 
+   AND SUBSTRING(E1_ORIGEM,1,3) = 'PLS' AND E1_TIPO NOT IN ('IS-','NCC') 
+   AND SE1.D_E_L_E_T_ = ' ' AND (BA3020.D_E_L_E_T_ <> '*' or BA3020.D_E_L_E_T_ is null) 
+AND BDC_GRPCOB BETWEEN '0001  ' AND '9999  ' 
+GROUP BY E1_EMISSAO

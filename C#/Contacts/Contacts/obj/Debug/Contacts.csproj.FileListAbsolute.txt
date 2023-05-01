@@ -1,0 +1,14 @@
+D:\GIT_PESSOAL\C#\Contacts\Contacts\bin\Debug\Contacts.exe.config
+D:\GIT_PESSOAL\C#\Contacts\Contacts\bin\Debug\Contacts.exe
+D:\GIT_PESSOAL\C#\Contacts\Contacts\bin\Debug\Contacts.pdb
+D:\GIT_PESSOAL\C#\Contacts\Contacts\obj\Debug\Contacts.csproj.AssemblyReference.cache
+D:\GIT_PESSOAL\C#\Contacts\Contacts\obj\Debug\Contacts.csproj.SuggestedBindingRedirects.cache
+D:\GIT_PESSOAL\C#\Contacts\Contacts\obj\Debug\Contacts.Properties.Resources.resources
+D:\GIT_PESSOAL\C#\Contacts\Contacts\obj\Debug\Contacts.csproj.GenerateResource.cache
+D:\GIT_PESSOAL\C#\Contacts\Contacts\obj\Debug\Contacts.csproj.CoreCompileInputs.cache
+D:\GIT_PESSOAL\C#\Contacts\Contacts\obj\Debug\Contacts.exe
+D:\GIT_PESSOAL\C#\Contacts\Contacts\obj\Debug\Contacts.pdb
+D:\GIT_PESSOAL\C#\Contacts\Contacts\bin\Debug\Database1.mdf
+D:\GIT_PESSOAL\C#\Contacts\Contacts\bin\Debug\Database1_log.ldf
+D:\GIT_PESSOAL\C#\Contacts\Contacts\obj\Debug\Contacts.Agenda.resources
+D:\GIT_PESSOAL\C#\Contacts\Contacts\obj\Debug\Contacts.Form2.resources

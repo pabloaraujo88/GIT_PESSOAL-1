@@ -1,0 +1,148 @@
+/*
+Os registros lidos na base de dados, devem ter a seguinte característica:
+
+Título do tipo NF (título ORIGINAL)
+
+Campo “Gera Dirf para este título?” (E2_DIRF) o conteúdo deve ser 2.
+Campo “Código de retenção” (E2_CODRET), deve estar preenchido.
+Campo “Título pai do imposto” (E2_TITPAI), deve estar em branco.
+
+*/
+
+
+SELECT E2_DIRF, E2_DTDIRF,E2_CODRET,* 
+FROM SE2020
+--UPDATE SE2010 SET E2_CODRET = '3208', E2_DIRF = '2'
+WHERE  E2_TITPAI = ''
+AND D_E_L_E_T_ <> '*'
+and E2_EMISSAO between '20210101' and '20211231'
+and E2_NATUREZ IN ('2101003', '410108001','410208001','410208002' ,'410208105','410308001','410208006' )
+ORDER BY E2_NATUREZ
+
+
+
+UPDATE SE2010
+SET E2_DIRF = '2' ,E2_CODRET = '', E2_DTDIRF = ''
+WHERE E2_TIPO IN( 'NF', 'RC')
+AND E2_TITPAI = ''
+AND D_E_L_E_T_ <> '*'
+AND E2_FILIAL = '20'
+and E2_EMISSAO between '20210101' and '20211231'
+and E2_NATUREZ IN ('2101003', '410108001','410208001','410208002' ,'410208105','410308001','410208006' )
+
+/*
+Título do tipo TX (título de imposto)
+
+Campo “Gera Dirf para este título?” (E2_DIRF) o conteúdo deve ser 1.
+Campo “Código de retenção” (E2_CODRET), deve estar preenchido.
+Campo “Título pai do imposto” (E2_TITPAI), deve estar preenchido com os dados do titulo principal.
+*/
+
+SELECT E2_DIRF, E2_DTDIRF,E2_CODRET,E2_TITPAI,* 
+FROM SE2010
+WHERE 
+E2_TIPO = 'TX'
+and E2_TITPAI <> ''
+and E2_FILIAL = '20'
+and D_E_L_E_T_ <> '*'
+AND E2_NATUREZ = '2103001'
+and E2_EMISSAO between '20210101' and '20211231'
+
+
+UPDATE SE2010
+SET E2_DTDIRF = '', E2_DIRF = '1'
+WHERE 
+E2_TIPO = 'TX'
+and E2_TITPAI <> ''
+and E2_FILIAL = '20'
+and D_E_L_E_T_ <> '*'
+AND E2_NATUREZ = '2103001'
+and E2_EMISSAO between '20210101' and '20211231'
+
+
+/*** GERAR DIRF 59592 */
+
+
+SELECT E2_DIRF, E2_DTDIRF,E2_CODRET,E2_TITPAI,* 
+FROM SE2010
+WHERE E2_TIPO = 'TX'
+AND D_E_L_E_T_ <> '*'
+--AND E2_CODRET = '5952'
+--AND E2_TITPAI <> ''
+AND E2_FILIAL = '20'
+and E2_VENCREA between '20210101' and '20211231'
+and E2_NATUREZ  IN ('2103004','2103006','2103005')
+
+
+
+
+
+update SE2010
+SET  E2_DIRF = '1',E2_DTDIRF = ''
+WHERE E2_TIPO = 'TX'
+AND D_E_L_E_T_ <> '*'
+--AND E2_CODRET = '5952'
+--AND E2_TITPAI <> ''
+AND E2_FILIAL = '20'
+and E2_VENCREA between '20210101' and '20211231'
+and E2_NATUREZ  IN ('2103004','2103006','2103005')
+
+
+UPDATE SE2070
+SET E2_DIRF = '1'
+WHERE E2_TIPO = 'TX'
+AND D_E_L_E_T_ <> '*'
+AND E2_CODRET = '5952'
+AND E2_TITPAI <> ''
+and E2_EMISSAO between '20140101' and '20141231'
+and E2_NATUREZ IN ('2103004','2103006','2103005')
+
+
+
+SELECT E2_DIRF, E2_DTDIRF,E2_CODRET,E2_TITPAI,* 
+from SE2100
+WHERE 
+ E2_NUM IN (
+			SELECT E2_NUM
+			FROM SE2100
+			WHERE E2_TIPO = 'TX'
+				AND E2_TITPAI <> ''
+				AND D_E_L_E_T_ <> '*'
+				AND E2_NATUREZ = '2103001'
+				and E2_EMISSAO between '20210101' and '20211231')
+AND E2_TIPO <> 'TX'
+AND E2_VRETIRF > 0
+AND D_E_L_E_T_ <> '*'
+
+UPDATE SE2100
+SET E2_DIRF = '1', E2_CODRET = '3208'
+WHERE E2_NUM IN (
+			SELECT E2_NUM
+			FROM SE2010
+			WHERE E2_FORNECE IN (
+			'000090',
+			'000211',
+			'000120')
+			AND E2_TIPO  = 'RC' )
+AND E2_TIPO = 'TX'
+
+UPDATE SE2010
+SET E2_CODRET = ED_CODRET
+FROM SE2010 SE2 JOIN SED010 SED ON (ED_CODIGO = E2_NATUREZ )
+WHERE ED_CODRET <> ''
+and E2_FILIAL = '20'
+AND SE2.D_E_L_E_T_ = ''
+AND SED.D_E_L_E_T_ = ''
+AND E2_CODRET = ''
+
+
+SELECT E2_CODRET,* FROM SE2020
+WHERE E2_FORNECE IN (
+select A2_COD from SA2020
+WHERE A2_NOME LIKE '%COOPE%')
+
+UPDATE SE2020
+SET E2_CODRET = '3280'
+WHERE E2_FORNECE IN (
+select A2_COD from SA2020
+WHERE A2_NOME LIKE '%COOPE%')
